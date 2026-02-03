@@ -1,3 +1,5 @@
 # Trading Capture System
 JDBC-based backend for a Trading Capture system. 
-Practice using React
+
+The Trading Capturing System (TCS) is a simulated transaction processing platform inspired by real-world trading systems jointly developed by top global investment banks such as Goldman Sachs and J.P. Morgan Chase. The system is designed to support real-time capture and validation of trading data, ensuring strict compliance with regulatory requirements across financial markets. At the same time, it enables data classification and aggregation to support downstream business analytics and processing.
+From an architectural perspective, the system is built using a microservices-based design. Spring Framework and Spring Cloud are used as the core development frameworks to ensure high availability and scalability of services. Kafka is introduced as the messaging system to handle high-throughput concurrent data processing, ensuring reliability and consistency of transaction data under heavy load. Deployment and operations are managed using Kubernetes, enabling automated management and elastic scaling, and improving the overall stability and resilience of the system.
