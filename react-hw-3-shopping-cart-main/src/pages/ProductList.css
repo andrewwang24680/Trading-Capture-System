@@ -1,0 +1,17 @@
+.product-list-container {
+  padding: 20px;
+}
+
+.product-list-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.product-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
