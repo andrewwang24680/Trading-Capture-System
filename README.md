@@ -1,2 +1,3 @@
-# TCS
-JDBC-based backend for a Transaction Compliance &amp; Screening (TCS) system.
+# Trading Capture System
+JDBC-based backend for a Trading Capture system. 
+Practice using React
