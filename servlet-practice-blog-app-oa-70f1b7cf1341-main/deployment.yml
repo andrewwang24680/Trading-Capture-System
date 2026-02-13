@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blog-app
+  labels:
+    app: blog-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blog-app
+  template:
+    metadata:
+      labels:
+        app: blog-app
+    spec:
+      containers:
+        - name: blog-app
+          image: ${IMAGE_NAME}
+          imagePullPolicy: IfNotPresent
+          resources:
+            limits:
+              cpu: 1
+              memory: 2000Mi
+            requests:
+              cpu: 0.1
+              memory: 100Mi
+          volumeMounts:
+            - name: app-logs
+              mountPath: /logs
+      volumes:
+        - name: app-logs
+          hostPath:
+            path: /data/app_logs/${ENV}/${JOB_NAME}
+            type: ''
+      imagePullSecrets:
+        - name: deploy-regcred
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: blog-app
+  labels:
+    service: blog-app
+spec:
+  selector:
+    app: blog-app
+  type: ClusterIP
+  ports:
+    - name: blog-app
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
